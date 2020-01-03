@@ -10,9 +10,9 @@ const app = new Vue({
         cards: [],
         myHand: [],
         mesa: [],
-        buy: [
-            
-        ]
+        buy: [],
+        buyCardCard: {"type": "reverse", "number": '1', "color": 'Blue'},
+        compreiCard: false
     },
     created(){
         this.newGame()
@@ -20,7 +20,7 @@ const app = new Vue({
     methods:{
         totalBuy(){
             this.buy = []
-            for(var i= 0; i < 109; i++){
+            for(var i= 0; i < 30; i++){
                 this.buy.push(i)
             }
         },
@@ -114,7 +114,7 @@ const app = new Vue({
                 this.myHand.splice(id, 1)
                 this.reogarnizarId()
                 this.mesa.push(card)
-            },1000);
+            },300);
            }
         },
         reogarnizarId(){
@@ -134,7 +134,10 @@ const app = new Vue({
             this.myHand = myHandTemp
         },
         buyCard(){
+            this.compreiCard = true
             const cardRandom = Math.floor(Math.random() * this.cards.length)
+            this.buyCardCard = this.cards[cardRandom]
+            setTimeout(() => {
                 this.myHand.push(
                     {"id": this.myHand.length+1,
                     "number": this.cards[cardRandom].number,
@@ -145,6 +148,8 @@ const app = new Vue({
             )
             this.reogarnizarId()
             this.buy.shift()
+            this.compreiCard = false
+            },300);
         }
     }
 })

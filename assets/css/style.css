@@ -27,7 +27,8 @@
         width: 100%;
         height: 220px;
         background: transparent;
-        z-index: 1000;
+        z-index: 10000;
+        transform: scale(0.9)
   }
 
   .card{
@@ -79,11 +80,34 @@
   }
 
   .playCard .card{
+    background-image: url(./assets/img/Red_6.png);
     background-size: contain;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 1s;
+    top: -17vw;
+    left: 52%;
+    transform: translate(-50%, -50%) scale(1.2);
+    transition: 0.3s;
     z-index: 10000;
   }
+
+  .zoom_0{
+      transform: translate(-20%, -40%) scale(0.8);
+  }
+
+  .zoom_0 .playCard .card{
+    background-size: contain;
+    position: fixed;
+    top: -15vw;
+    left: 78%;
+    transform: translate(-50%, -50%) scale(1.2);
+    transition: 0.3s;
+    z-index: 10000;
+  }
+
+  @keyframes mymove {
+    from {
+        left: 80%;
+        top: 19vw;
+    }
+    to {top: 200px;}
+    }
