@@ -248,13 +248,13 @@ const app = new Vue({
             this.quantasComprei = 0
             this.pulouVez = false
             if(this.mesa[this.mesa.length - 1].number === "Skip"){
-                this.vez += 2
+                this.vez = 1
                 this.pulouVez = true
                 this.botJogar()
             }
             else if(this.mesa[this.mesa.length - 1].number === "Draw"){
                 this.compraDuas()
-                this.vez += 2
+                this.vez = 1
                 this.pulouVez = true
                 this.botJogar()
             }
@@ -304,6 +304,10 @@ const app = new Vue({
                         clearInterval(verificando)
                     } 
             }, 400)
+        },
+        naoQueroJogar(){
+            this.vez = 0
+            this.botJogar()
         },
         botJogar(){
             if(!this.pause){
