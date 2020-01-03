@@ -337,13 +337,6 @@ const app = new Vue({
                 },300);
                } else{
                  console.log("n tem")
-                 var cardRandom = Math.floor(Math.random() * this.cards.length)
-                 this.bots[this.vez].cards.push(
-                    {
-                    "number": this.cards[cardRandom].number,
-                    "color": this.cards[cardRandom].color
-                    }
-                )
                  this.passarVez()
                }
             }
