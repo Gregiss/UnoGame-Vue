@@ -61,6 +61,18 @@
         </div>
 
         <div class="mount" style="z-index: 10000000000; position: fixed;">
+            <button v-if="vez == -1" @click="passarVez" class="pularVez" style="border: none;
+            outline: none;
+            padding: 10px;
+            transform: scale(1.5);
+            background: rgb(234, 50, 60);
+            color: rgb(255, 255, 255);
+            border-radius: 20px;
+            cursor: pointer;
+            top: 117%;
+            position: fixed;">
+                Pular vez
+            </button>
             <div class="buy" 
             @click="buyCard"
             style="position: absolute; display: inline-table; left: -100%; transform: rotate(11deg)" v-for="buy in buy">

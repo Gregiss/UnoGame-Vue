@@ -181,6 +181,13 @@
             .buy{
                   left: 0% !important;
             }
+
+            .pularVez{
+                  top: 90%;
+                  position: fixed;
+                  left: 24%;
+                  transform: scale(2) !important;
+            }
       }
 
       @media screen and (max-width:934px){
@@ -205,6 +212,13 @@
 
             .right{
                   top: 30%;
+            }
+
+            .pularVez{
+                  top: 81% !important;               
+                  position: fixed !important;                 
+                  left: 24% !important;
+                  transform: scale(1) !important;
             }
       }
 
@@ -246,7 +260,15 @@
             }
 
             .mount{
-                  top: 67%;
+                  top: 55%;
+                  height: 100px;
+            }
+            
+            .pularVez{
+                  top: 81% !important;               
+                  position: fixed !important;                 
+                  left: 24% !important;
+                  transform: scale(1) !important;
             }
       }
 

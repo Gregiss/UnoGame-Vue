@@ -64,11 +64,6 @@ const app = new Vue({
         mountCardsEspecial(){
             for(var i = 0; i < 4; i++){
                 this.cards.push(
-                    {"type": "reverse", "number": 'Reverse', "color": this.colors[i].color}
-                )
-            }
-            for(var i = 0; i < 4; i++){
-                this.cards.push(
                     {"type": "reverse", "number": 'Draw', "color": this.colors[i].color}
                 )
             }
@@ -148,6 +143,8 @@ const app = new Vue({
             if(this.myHand[id].number == this.mesa[this.mesa.length - 1].number
               ||
               this.myHand[id].color == this.mesa[this.mesa.length - 1].color
+              ||
+              this.myHand[id].number == "Wild_Draw"
               ){
             this.myHand[id].playing = true
             setTimeout(() => {
@@ -175,21 +172,6 @@ const app = new Vue({
             }
             this.myHand = myHandTemp
         }
-        },
-        reogarnizarIdBot(){
-            var myHandTemp = []
-            const arrayTemp = this.bots[this.vez]
-            for(var i = 0; i < this.myHand.length; i++){
-                myHandTemp.cards.push(
-                    {"id": i + 1,
-                    "number": arrayTemp.cards[i].number,
-                    "color": arrayTemp.cards[i].color,
-                    "hover": false,
-                    "playing": false
-                    },
-                )
-            }
-            this.bots[this.vez] = botHandTemp
         },
         buyCard(){
             if(this.vez == -1){
@@ -227,7 +209,28 @@ const app = new Vue({
                     cardRandom = Math.floor(Math.random() * this.cards.length)
                 }
                 this.bots[this.vez + 1].cards.push(
-                    {"id": this.bots[i].cards.length+1,
+                    {
+                    "number": this.cards[cardRandom].number,
+                    "color": this.cards[cardRandom].color
+                    }
+                )
+            }
+        },
+        compra4(){
+            for(var i = 0; i < 4; i++){
+                var cardRandom = Math.floor(Math.random() * this.cards.length)
+                while(this.cards[cardRandom].number == "Wild_Draw" 
+                || 
+                this.cards[cardRandom].number == "Skip"
+                || 
+                this.cards[cardRandom].number == "Draw"
+                || 
+                this.cards[cardRandom].number == "Reverse"){
+                    cardRandom = Math.floor(Math.random() * this.cards.length)
+                }
+
+                this.bots[0].cards.push(
+                    {
                     "number": this.cards[cardRandom].number,
                     "color": this.cards[cardRandom].color,
                     "hover": false,
@@ -240,37 +243,26 @@ const app = new Vue({
             this.quantasComprei = 0
             this.pulouVez = false
             if(this.mesa[this.mesa.length - 1].number === "Skip"){
-                if(this.sentido == 0){
-                this.vez += 2
-                } else{
-                    this.vez = 1
-                }
+                this.vez += 1
                 this.pulouVez = true
                 this.botJogar()
             }
             else if(this.mesa[this.mesa.length - 1].number === "Draw"){
                 this.compraDuas()
-                this.reogarnizarIdBot()
-                if(this.sentido == 0){
-                    this.vez += 1
-                } else{
-                    this.vez = 1
-                }
+                this.vez += 2
                 this.pulouVez = true
+                this.botJogar()
             }
-            else if(this.mesa[this.mesa.length - 1].number === "Reverse"){
-                if(this.vez == -1){
-                    if(this.sentido == 0){
-                        this.sentido = 1
-                    } else{
-                        this.sentido = 0
-                    }
-                }
+            else if(this.mesa[this.mesa.length - 1].number === "Wild_Draw"){
+                this.compra4()
+                this.vez += 2
+                this.pulouVez = true
+                this.botJogar()
             }
             
             if(!this.pulouVez){
             setTimeout(() => {
-            if(this.sentido = 0){
+  
             if(this.vez == -1){
                 this.vez = 0
                 this.botJogar()
@@ -283,21 +275,7 @@ const app = new Vue({
             } else if(this.vez == 2){
                 this.vez = -1
             }
-           } else{
-            if(this.vez == -1){
-                this.vez = 2
-                this.botJogar()
-            } else if(this.vez == 0){ 
-                this.vez = -1
-            } else if(this.vez == 1){  
-                this.vez = 0 
-                this.botJogar()
-            } else if(this.vez == 2){
-                this.vez = 1
-                this.botJogar()
-            }
-           }
-            },1500);
+            },1000);
          }
         },
         botJogar(){
@@ -327,6 +305,13 @@ const app = new Vue({
                 },300);
                } else{
                  console.log("n tem")
+                 var cardRandom = Math.floor(Math.random() * this.cards.length)
+                 this.bots[this.vez].cards.push(
+                    {
+                    "number": this.cards[cardRandom].number,
+                    "color": this.cards[cardRandom].color
+                    }
+                )
                  this.passarVez()
                }
         }
