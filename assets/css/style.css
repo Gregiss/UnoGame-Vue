@@ -1,113 +1,255 @@
 *{
-    margin: 0px;
-    padding: 0px;
-  }
+      margin: 0px;
+      padding: 0px;
+    }
+    
+    *{
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                      supported by Chrome, Opera and Firefox */
+    }
   
-  *{
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome, Opera and Firefox */
-  }
-
-  #app{
+    #app{
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-image: url('../img/Table_1.png')
+    }
+  
+    .myCard{
+          position: fixed;
+          bottom: -38px;
+          width: auto;
+          height: 220px;
+          background: transparent;
+          z-index: 10000;
+          transform: scale(0.9);
+          left: 33%;
+          transform: translate(-50%);
+    }
+  
+    .card{
+          position: relative;
+          height: 200px;
+          width: 137px;
+          background: #fff;
+          border-radius: 10px;
+          transform: rotate(2deg);
+          background-image: url(../img/Green_3.png);
+          background-size: contain;
+          display: inline-table;
+          margin: -18px;
+          box-shadow: 5px 1px 11px 1px rgba(0,0,0,.40);
+          cursor: pointer;
+          transition: all 0.2s;
+    }
+  
+    .card_2{
+          transform: rotate(-2deg) translate(-50%);
+    }
+  
+    .card_3{
+          transform: rotate(0deg) translate(-50%);
+    }
+  
+    .card_4{
+          transform: rotate(7deg) translate(-51%,8%);
+    }
+  
+    .card_5{
+          transform: rotate(11deg) translate(-50%, 18%);
+    }
+  
+    .mount{
         position: fixed;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-image: url('../img/Table_1.png')
-  }
-
-  .myCard{
-        position: fixed;
-        bottom: 0px;
-        width: 100%;
-        height: 220px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background: transparent;
-        z-index: 10000;
-        transform: scale(0.9)
-  }
-
-  .card{
-        position: relative;
+        width: 200px;
         height: 200px;
-        width: 137px;
-        background: #fff;
-        border-radius: 10px;
-        transform: rotate(2deg) translate(-50%);
-        background-image: url(../img/Green_3.png);
-        background-size: contain;
-        display: inline-table;
-        margin: -18px;
-        box-shadow: 5px 1px 11px 1px rgba(0,0,0,.40);
-        left: 40%;
-        cursor: pointer;
-        transition: all 0.2s;
-  }
-
-  .card_2{
-        transform: rotate(-2deg) translate(-50%);
-  }
-
-  .card_3{
-        transform: rotate(0deg) translate(-50%);
-  }
-
-  .card_4{
-        transform: rotate(7deg) translate(-51%,8%);
-  }
-
-  .card_5{
-        transform: rotate(11deg) translate(-50%, 18%);
-  }
-
-  .mount{
+    }
+  
+    .activeHover{
+        top: -20px;
+        z-index: 100;
+    }
+  
+    .playCard .card{
+      background-image: url(./assets/img/Red_6.png);
+      background-size: contain;
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: transparent;
-      width: 200px;
-      height: 200px;
-  }
-
-  .activeHover{
-      top: -20px;
-      z-index: 100;
-  }
-
-  .playCard .card{
-    background-image: url(./assets/img/Red_6.png);
-    background-size: contain;
-    position: fixed;
-    top: -17vw;
-    left: 52%;
-    transform: translate(-50%, -50%) scale(1.2);
-    transition: 0.3s;
-    z-index: 10000;
-  }
-
-  .zoom_0{
-      transform: translate(-20%, -40%) scale(0.8);
-  }
-
-  .zoom_0 .playCard .card{
-    background-size: contain;
-    position: fixed;
-    top: -15vw;
-    left: 78%;
-    transform: translate(-50%, -50%) scale(1.2);
-    transition: 0.3s;
-    z-index: 10000;
-  }
-
-  @keyframes mymove {
-    from {
-        left: 80%;
-        top: 19vw;
+      top: -17vw;
+      left: 52%;
+      transform: translate(-50%, -50%) scale(1.2);
+      transition: 0.3s;
+      z-index: 10000;
     }
-    to {top: 200px;}
+  
+    .zoom_0{
+        transform: translate(-20%, -40%) scale(0.8);
     }
+  
+    .zoom_0 .playCard .card{
+      background-size: contain;
+      position: fixed;
+      top: -15vw;
+      left: 78%;
+      transform: translate(-50%, -50%) scale(1.2);
+      transition: 0.3s;
+      z-index: 10000;
+    }
+  
+    @keyframes mymove {
+      from {
+          left: 80%;
+          top: 19vw;
+      }
+      to {top: 200px;}
+      }
+
+
+      .top{
+            position: fixed;
+            width: auto;
+            z-index: 10000;
+            left: 30%;
+            top: -5%;
+      }
+
+      .left{
+            position: fixed;
+            width: auto;
+            z-index: 10000;
+            top: 18%;
+            left: 0%;
+      }
+
+      .left .card{
+            display: block;
+      }
+
+      .right{
+            position: fixed;
+            width: auto;
+            z-index: 10000;
+            top: 20%;
+            right: 0%;
+      }
+      
+      .avatar{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 50%;
+            transform: scale(1.1);  
+      }
+
+      .left .avatar{
+            left: 232%;
+            top: 83%;
+      }
+
+      .right .avatar{
+            top: -29%;
+            left: -203%;
+      }
+
+      .myCard .avatar{
+            position: fixed;
+            right: -162%;
+            top: 13%;
+      }
+
+      .top .avatar{
+            top: 41%;
+            left: 200px;
+      }
+
+      @media screen and (max-width:1398px){
+            .card{
+                  width: 106px;
+                  height: 150px;
+            }
+
+            .buy{
+                  left: 0% !important;
+            }
+      }
+
+      @media screen and (max-width:934px){
+            .card{
+                  width: 72px;
+                  height: 106px;
+                  margin-left: 2px;
+            }
+
+            .buy{
+                  left: 0% !important;
+                  transform: scale(1.2) !important;
+            }
+
+            .myCard{
+                  bottom: -20%;
+            }
+
+            .left{
+                  top: 50%;
+            }
+
+            .right{
+                  top: 30%;
+            }
+      }
+
+      @media screen and (max-width:830px){
+            .card{
+                  width: 72px !important;
+                  height: 106px !important;
+                  margin-left: -10px;
+                  transform: scale(0.9) !important;
+            }
+
+            .buy{
+                  left: 0% !important;
+                  width: 72px !important;
+                  height: 106px !important;
+                  transform: scale(0.8) !important;
+            }
+
+            .myCard{
+                  bottom: -40%;
+            }
+
+            .left{
+                  top: 50%;
+            }
+
+            .right{
+                  top: 30%;
+            }
+
+            .mount{
+                  top: 60%;
+            }
+      }
+
+      @media screen and (max-width:830px){
+            .myCard{
+                  bottom: -50%;
+            }
+
+            .mount{
+                  top: 67%;
+            }
+      }
+
+      .emCima{
+            z-index: 10000000000;
+      }
