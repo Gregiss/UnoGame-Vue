@@ -107,6 +107,7 @@ const app = new Vue({
         newGame(){
             this.modal = false
             this.sentido = 0
+            this.vez = -1
             this.mountCardNormal()
             this.mountCardsEspecial()
             this.gerarMesa()
