@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>UNO</title>
+</head>
+<body>
+    <div id="app">
+        <div class="myCard">
+            <div v-for="card in myHand" style="display: inline-table; left: 35%; position: relative;"
+            :class="{activeHover : card.hover}"
+            v-bind:key="card.id">
+            <div :class="{playCard : card.playing}">
+                <div class="card" 
+               
+                @mouseenter="hoverCard(card)"
+                @mouseleave="saiuCard(card)"
+                @click="playCard(card)"
+                :style="{backgroundImage: 'url( ./assets/img/' + card.color + '_' + card.number + '.png)'}">
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="mount">
+            <div class="buy" 
+            @click="buyCard"
+            style="position: absolute; display: inline-table; left: -100%; transform: rotate(11deg)" v-for="buy in buy">
+                <div class="card" style="box-shadow: 2px 1px 2px 1px rgba(0,0,0,.20) !important; border: 1px solid rgba(0,0,0,.30); backgroundImage: url( ./assets/img/Deck.png)"
+                :style="{transform: 'translateY('+buy * 0.4 + 'px)'}"
+                >
+                </div>
+            </div>
+            <div style="display: inline-table; left: 35%; position: absolute;" v-for="card in mesa">
+                <div class="card" 
+                v-bind:class="'card_' + card.id"
+                
+                :style="{backgroundImage: 'url( ./assets/img/' + card.color + '_' + card.number + '.png)'}">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./assets/js/engine.js"></script>
+</body>
+</html>
