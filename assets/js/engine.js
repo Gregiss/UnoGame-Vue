@@ -1,3 +1,5 @@
+const playAudio = new Audio('./assets/sound/taking_card.wav');
+
 const app = new Vue({
     el: "#app",
     data:{
@@ -18,10 +20,15 @@ const app = new Vue({
         vez: -1,
         pulouVez: false,
         sentido: null,
-        trocouDeSentido: false
+        trocouDeSentido: false,
+        modal: false,
+        modalTitle: "",
+        pause: false,
+        loading: false
     },
     created(){
-        this.newGame()
+        this.loading = true
+        this.newGame() 
     },
     methods:{
         botIniciar(){
@@ -72,9 +79,6 @@ const app = new Vue({
                     {"type": "reverse", "number": 'Skip', "color": this.colors[i].color}
                 )
             }
-            this.cards.push(
-                {"type": "reverse", "number": 'Wild_Draw'}
-            )
         },
         mountCardNormal(){
             this.cards = []
@@ -101,6 +105,7 @@ const app = new Vue({
             }
         },
         newGame(){
+            this.modal = false
             this.sentido = 0
             this.mountCardNormal()
             this.mountCardsEspecial()
@@ -108,6 +113,8 @@ const app = new Vue({
             this.totalBuy()
             this.mountMyHand()
             this.botIniciar()
+            this.verficarSeGanharam()
+            this.pause = false
         },
         hoverCard(card){
             const id = this.myHand.indexOf(card)
@@ -147,6 +154,7 @@ const app = new Vue({
               this.myHand[id].number == "Wild_Draw"
               ){
             this.myHand[id].playing = true
+            playAudio.play()
             setTimeout(() => {
                 this.mesa.push(card)
                 this.myHand.splice(id, 1)
@@ -228,13 +236,10 @@ const app = new Vue({
                 this.cards[cardRandom].number == "Reverse"){
                     cardRandom = Math.floor(Math.random() * this.cards.length)
                 }
-
                 this.bots[0].cards.push(
                     {
                     "number": this.cards[cardRandom].number,
-                    "color": this.cards[cardRandom].color,
-                    "hover": false,
-                    "playing": false
+                    "color": this.cards[cardRandom].color
                     }
                 )
             }
@@ -243,18 +248,12 @@ const app = new Vue({
             this.quantasComprei = 0
             this.pulouVez = false
             if(this.mesa[this.mesa.length - 1].number === "Skip"){
-                this.vez += 1
+                this.vez += 2
                 this.pulouVez = true
                 this.botJogar()
             }
             else if(this.mesa[this.mesa.length - 1].number === "Draw"){
                 this.compraDuas()
-                this.vez += 2
-                this.pulouVez = true
-                this.botJogar()
-            }
-            else if(this.mesa[this.mesa.length - 1].number === "Wild_Draw"){
-                this.compra4()
                 this.vez += 2
                 this.pulouVez = true
                 this.botJogar()
@@ -278,7 +277,36 @@ const app = new Vue({
             },1000);
          }
         },
+        verficarSeGanharam(){
+            const verificando = setInterval(() => {
+                if(this.myHand.length == 0){
+                    this.modal = true
+                    this.modalTitle = "Você ganhou, parabéns"
+                    this.pause = true
+                    clearInterval(verificando)
+                }
+                else if(this.bots[0].cards.length == 0){
+                        this.modal = true
+                        this.modalTitle = "Você perdeu, que pena :/"
+                        this.pause = true
+                        clearInterval(verificando)
+                    } 
+                else if(this.bots[1].cards.length == 0){
+                        this.modal = true
+                        this.modalTitle = "Você perdeu, que pena :/"
+                        this.pause = true
+                        clearInterval(verificando)
+                    } 
+                else if(this.bots[2].cards.length == 0){
+                        this.modal = true
+                        this.modalTitle = "Você perdeu, que pena :/"
+                        this.pause = true
+                        clearInterval(verificando)
+                    } 
+            }, 400)
+        },
         botJogar(){
+            if(!this.pause){
             if(this.vez !== -1){
                 var id = Math.floor(Math.random() * this.bots[this.vez].cards.length)
                 var tentativas = 0;
@@ -314,6 +342,7 @@ const app = new Vue({
                 )
                  this.passarVez()
                }
+            }
         }
         }
     }

@@ -13,6 +13,11 @@
                                       supported by Chrome, Opera and Firefox */
     }
   
+    body{
+      font: 20px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+      overflow: hidden !important;
+    }
+
     #app{
           position: fixed;
           width: 100%;
@@ -273,5 +278,42 @@
       }
 
       .emCima{
-            z-index: 10000000000;
+            z-index: 100000;
+      }
+
+      .modal{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.70);
+            top: 0px;
+            left: 0px;
+            z-index: 1000000;
+      }
+
+      .modal .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #eee;
+            padding: 40px;
+            border-radius: 4px
+      }
+
+      .modal .center h2,h1{
+            margin: 25px;
+            font-weight: 100;
+      }
+
+      .modal .center button{
+            border: none;
+            outline: none;
+            background: rgba(0,0,0,.50);
+            color: #fff;
+            padding: 10px;
+            margin: 0px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 22px;
       }
