@@ -24,7 +24,8 @@ const app = new Vue({
         modal: false,
         modalTitle: "",
         pause: false,
-        loading: false
+        loading: false,
+		playing: false
     },
     created(){
         this.loading = true
@@ -140,6 +141,14 @@ const app = new Vue({
                 "playing": false
                 },
             )
+			this.mesa.push(
+                {"id": this.myHand.length+1,
+                "number": this.cards[cardRandom].number,
+                "color": this.cards[cardRandom].color,
+                "hover": false,
+                "playing": false
+                },
+            )
         },
         saiuCard(card){
             const id = this.myHand.indexOf(card)
@@ -224,6 +233,7 @@ const app = new Vue({
                     }
                 )
             }
+			this.mesa.pop()
         },
         compra4(){
             for(var i = 0; i < 4; i++){
@@ -251,12 +261,14 @@ const app = new Vue({
             if(this.mesa[this.mesa.length - 1].number === "Skip"){
                 this.vez = 1
                 this.pulouVez = true
+				this.mesa.pop()
                 this.botJogar()
             }
             else if(this.mesa[this.mesa.length - 1].number === "Draw"){
                 this.compraDuas()
                 this.vez = 1
                 this.pulouVez = true
+				this.mesa.pop()
                 this.botJogar()
             }
             
