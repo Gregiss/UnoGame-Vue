@@ -1,5 +1,8 @@
 const playAudio = new Audio('./assets/sound/taking_card.wav');
 
+console.log("UNO v0.1")
+console.log("UNO ENGINE v0.1")
+
 const app = new Vue({
     el: "#app",
     data:{
