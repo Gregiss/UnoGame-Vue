@@ -359,6 +359,22 @@ const engine = new Vue({
                 },300);
                } else{
                  console.log("n tem")
+				 const cardRandom = Math.floor(Math.random() * this.cards.length)
+					while(this.cards[cardRandom].number == "Wild_Draw" 
+					|| 
+					this.cards[cardRandom].number == "Skip"
+					|| 
+					this.cards[cardRandom].number == "Draw"
+					|| 
+					this.cards[cardRandom].number == "Reverse"){
+						cardRandom = Math.floor(Math.random() * this.cards.length)
+					}
+				 this.bots[this.vez].cards.push(
+                    {
+                    "number": this.cards[cardRandom].number,
+                    "color": this.cards[cardRandom].color
+                    }
+                 )
                  this.passarVez()
                }
             }
