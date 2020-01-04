@@ -336,7 +336,7 @@ const engine = new Vue({
             if(this.vez !== -1){
                 var id = Math.floor(Math.random() * this.bots[this.vez].cards.length)
                 var tentativas = 0;
-                while(tentativas < 3){
+                while(tentativas < this.bots[this.vez].cards.length){
                     if(this.bots[this.vez].cards[id].number == this.mesa[this.mesa.length - 1].number
                         ||
                         this.bots[this.vez].cards[id].color == this.mesa[this.mesa.length - 1].color
