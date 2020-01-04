@@ -47,7 +47,7 @@
           transform: rotate(2deg);
           background-image: url(../img/Green_3.png);
           background-size: contain;
-          display: inline-table;
+          display: flex;
           margin: -18px;
           box-shadow: 5px 1px 11px 1px rgba(0,0,0,.40);
           cursor: pointer;
@@ -327,3 +327,11 @@
             width: 100%;
             font-size: 22px;
       }
+	  
+	  .possoJogar{
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  background: rgba(0,0,0,.70);
+		  border-radius: 10px;
+		 }

@@ -29,7 +29,8 @@ const engine = new Vue({
         pause: false,
         loading: false,
 		playing: false,
-		jogueiCarta: false
+		jogueiCarta: false,
+		ultimaCartaMesa: {}
     },
     created(){
         this.loading = true
@@ -148,14 +149,7 @@ const engine = new Vue({
                 "playing": false
                 },
             )
-			this.mesa.push(
-                {"id": this.myHand.length+1,
-                "number": this.cards[cardRandom].number,
-                "color": this.cards[cardRandom].color,
-                "hover": false,
-                "playing": false
-                },
-            )
+			this.ultimaCartaMesa = this.cards[cardRandom]
         },
         saiuCard(card){
             const id = this.myHand.indexOf(card)
@@ -175,6 +169,7 @@ const engine = new Vue({
             this.myHand[id].playing = true
             playAudio.play()
             setTimeout(() => {
+				this.ultimaCartaMesa = card
                 this.mesa.push(card)
                 this.myHand.splice(id, 1)
                 this.reogarnizarId()  
@@ -355,6 +350,7 @@ const engine = new Vue({
                   ){
                     console.log("tem")
                 setTimeout(() => {
+					this.ultimaCartaMesa = this.bots[this.vez].cards[id]
                     this.mesa.push(this.bots[this.vez].cards[id])
                     this.bots[this.vez].cards.splice(id, 1)
                     this.passarVez()

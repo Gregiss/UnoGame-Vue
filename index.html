@@ -18,13 +18,16 @@
             <div v-for="card in myHand" style="display: inline-table; left: 35%; position: relative;"
             :class="{activeHover : card.hover}"
             v-bind:key="card.id">
+			<div>
             <div :class="{playCard : card.playing}">
                 <div class="card" 
                 @mouseenter="hoverCard(card)"
                 @mouseleave="saiuCard(card)"
                 @click="playCard(card)"
                 :style="{backgroundImage: 'url( ./assets/img/' + card.color + '_' + card.number + '.png)'}">
+				<div class="possoJogar" v-if="card.color !== ultimaCartaMesa.color && card.number !== ultimaCartaMesa.number"></div>
                 </div>
+			</div>
             </div>
             </div>
         </div>
