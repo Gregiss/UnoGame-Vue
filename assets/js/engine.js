@@ -28,7 +28,8 @@ const engine = new Vue({
         modalTitle: "",
         pause: false,
         loading: false,
-		playing: false
+		playing: false,
+		jogueiCarta: false
     },
     created(){
         this.loading = true
@@ -159,6 +160,8 @@ const engine = new Vue({
         },
         playCard(card){
             if(this.vez == -1){
+			if(!this.jogueiCarta){
+			this.jogueiCarta = true
             const id = this.myHand.indexOf(card)
             if(this.myHand[id].number == this.mesa[this.mesa.length - 1].number
               ||
@@ -174,6 +177,7 @@ const engine = new Vue({
                 this.reogarnizarId()  
                 this.passarVez()
             },300);  
+			  }
            }
         }
         },
@@ -289,6 +293,7 @@ const engine = new Vue({
                 this.botJogar()
             } else if(this.vez == 2){
                 this.vez = -1
+				this.jogueiCarta = false
             }
             },1000);
          }
