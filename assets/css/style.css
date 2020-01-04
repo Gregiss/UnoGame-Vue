@@ -261,14 +261,15 @@
             }
       }
 
-      @media screen and (max-width:830px){
+      @media screen and (max-width: 830px){
             .myCard{
                   bottom: -50%;
             }
 
             .mount{
-                  top: 50%;
+                  top: 33%;
                   height: 100px;
+                  transform: translate(-50%) scale(0.7);
             }
             
             .pularVez{
@@ -279,7 +280,8 @@
             }
 			
 			.myCard{
-				bottom: -60% !important;
+				bottom: -42% !important;
+				transform: translate(-50%) scale(0.9);
 			}
       }
 
