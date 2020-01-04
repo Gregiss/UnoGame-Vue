@@ -107,7 +107,6 @@ const app = new Vue({
         newGame(){
             this.modal = false
             this.sentido = 0
-            this.vez = -1
             this.mountCardNormal()
             this.mountCardsEspecial()
             this.gerarMesa()
@@ -116,6 +115,7 @@ const app = new Vue({
             this.botIniciar()
             this.verficarSeGanharam()
             this.pause = false
+			this.vez = -1
         },
         hoverCard(card){
             const id = this.myHand.indexOf(card)
