@@ -111,6 +111,7 @@ const engine = new Vue({
         },
         newGame(){
             this.modal = false
+			this.mesa = []
             this.sentido = 0
             this.mountCardNormal()
             this.mountCardsEspecial()
