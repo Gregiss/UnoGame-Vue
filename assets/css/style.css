@@ -241,6 +241,7 @@
                   width: 72px !important;
                   height: 106px !important;
                   transform: scale(0.8) !important;
+                  top: -15px;
             }
 
             .myCard{
@@ -266,7 +267,7 @@
             }
 
             .mount{
-                  top: 55%;
+                  top: 50%;
                   height: 100px;
             }
             
