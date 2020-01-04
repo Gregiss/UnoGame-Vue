@@ -358,6 +358,7 @@ const engine = new Vue({
                   ){
                     console.log("tem")
                 setTimeout(() => {
+					this.ultimaCartaMesa = this.bots[this.vez].cards[id]
                     this.mesa.push(this.bots[this.vez].cards[id])
                     this.bots[this.vez].cards.splice(id, 1)
                     this.passarVez()
@@ -380,8 +381,7 @@ const engine = new Vue({
                     "color": this.cards[cardRandom].color
                     }
 					
-                 )
-				 this.ultimaCartaMesa = this.cards[cardRandom]
+                 )				 
                  this.passarVez()
                }
             }
