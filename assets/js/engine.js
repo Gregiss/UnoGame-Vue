@@ -164,7 +164,6 @@ const engine = new Vue({
         playCard(card){
             if(this.vez == -1){
 			if(!this.jogueiCarta){
-			this.jogueiCarta = true
             const id = this.myHand.indexOf(card)
             if(this.myHand[id].number == this.mesa[this.mesa.length - 1].number
               ||
@@ -172,6 +171,7 @@ const engine = new Vue({
               ||
               this.myHand[id].number == "Wild_Draw"
               ){
+			this.jogueiCarta = true
             this.myHand[id].playing = true
             playAudio.play()
             setTimeout(() => {
@@ -179,7 +179,7 @@ const engine = new Vue({
                 this.myHand.splice(id, 1)
                 this.reogarnizarId()  
                 this.passarVez()
-            },300);  
+            },500);  
 			  }
            }
         }

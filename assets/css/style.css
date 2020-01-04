@@ -106,16 +106,15 @@
       top: -15vw;
       left: 78%;
       transform: translate(-50%, -50%) scale(1.2);
-      transition: 0.3s;
+      transition: 0.5s;
       z-index: 10000;
     }
   
     @keyframes mymove {
-      from {
-          left: 80%;
-          top: 19vw;
+      0% {
+          top: 49vw;
       }
-      to {top: 200px;}
+      10% {left: 80%;}
       }
 
 
