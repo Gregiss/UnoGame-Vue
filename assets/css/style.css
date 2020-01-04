@@ -184,16 +184,17 @@
             }
 
             .buy{
-                  left: 0% !important;
+                  left: -50% !important;
             }
 
             .pularVez{
-                  top: 90%;
+                  top: 90% !important;
                   position: fixed;
-                  left: 24%;
+                  left: 15%;
                   transform: scale(2) !important;
             }
       }
+
 
       @media screen and (max-width:934px){
             .card{
