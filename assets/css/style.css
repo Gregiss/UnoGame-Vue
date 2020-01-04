@@ -338,4 +338,9 @@
 		 
 		 .right .card{
 			 margin-top: -75px;
+			 transform: rotate(183deg);
+			}
+
+			.top .card{
+				transform: rotate(179deg);
 			}
