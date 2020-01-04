@@ -277,6 +277,10 @@
                   left: 24% !important;
                   transform: scale(1) !important;
             }
+			
+			.myCard{
+				bottom: -56% !important;
+			}
       }
 
       .emCima{
