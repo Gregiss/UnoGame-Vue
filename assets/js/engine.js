@@ -121,6 +121,7 @@ const engine = new Vue({
             this.verficarSeGanharam()
             this.pause = false
 			this.vez = -1
+			this.jogueiCarta = false
         },
         hoverCard(card){
             const id = this.myHand.indexOf(card)
