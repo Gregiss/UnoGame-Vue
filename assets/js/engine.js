@@ -149,6 +149,14 @@ const engine = new Vue({
                 "playing": false
                 },
             )
+			this.mesa.push(
+                {"id": this.myHand.length+1,
+                "number": this.cards[cardRandom].number,
+                "color": this.cards[cardRandom].color,
+                "hover": false,
+                "playing": false
+                },
+            )
 			this.ultimaCartaMesa = this.cards[cardRandom]
         },
         saiuCard(card){
@@ -350,7 +358,6 @@ const engine = new Vue({
                   ){
                     console.log("tem")
                 setTimeout(() => {
-					this.ultimaCartaMesa = this.bots[this.vez].cards[id]
                     this.mesa.push(this.bots[this.vez].cards[id])
                     this.bots[this.vez].cards.splice(id, 1)
                     this.passarVez()
@@ -367,14 +374,14 @@ const engine = new Vue({
 					this.cards[cardRandom].number == "Reverse"){
 						cardRandom = Math.floor(Math.random() * this.cards.length)
 					}
-					 this.bots[this.vez].cards.push(
-						{
-						"number": this.cards[cardRandom].number,
-						"color": this.cards[cardRandom].color
-						}
-					 )
-					 this.botNaoPodeComprar = true
-					 this.botJogar()
+				 this.bots[this.vez].cards.push(
+                    {
+                    "number": this.cards[cardRandom].number,
+                    "color": this.cards[cardRandom].color
+                    }
+					
+                 )
+				 this.ultimaCartaMesa = this.cards[cardRandom]
                  this.passarVez()
                }
             }
