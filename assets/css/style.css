@@ -282,6 +282,10 @@
 			.myCard{
 				  transform: translate(-50%) scale(0.9);
 			}
+
+			.myCard .card{
+			margin-top: -12px;
+			}
       }
 
       .emCima{
