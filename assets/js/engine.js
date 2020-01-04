@@ -127,6 +127,7 @@ const engine = new Vue({
             this.myHand[id].hover = true
         },
         gerarMesa(){
+			this.mesa = []
             var cardRandom = Math.floor(Math.random() * this.cards.length)
             while(this.cards[cardRandom].number == "Wild_Draw" 
             || 
