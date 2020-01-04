@@ -367,12 +367,14 @@ const engine = new Vue({
 					this.cards[cardRandom].number == "Reverse"){
 						cardRandom = Math.floor(Math.random() * this.cards.length)
 					}
-				 this.bots[this.vez].cards.push(
-                    {
-                    "number": this.cards[cardRandom].number,
-                    "color": this.cards[cardRandom].color
-                    }
-                 )
+					 this.bots[this.vez].cards.push(
+						{
+						"number": this.cards[cardRandom].number,
+						"color": this.cards[cardRandom].color
+						}
+					 )
+					 this.botNaoPodeComprar = true
+					 this.botJogar()
                  this.passarVez()
                }
             }

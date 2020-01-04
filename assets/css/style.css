@@ -335,3 +335,7 @@
 		  background: rgba(0,0,0,.70);
 		  border-radius: 10px;
 		 }
+		 
+		 .right .card{
+			 margin-top: -75px;
+			}
