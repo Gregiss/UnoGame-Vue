@@ -96,9 +96,7 @@
             </div>
             <div style="display: inline-table; left: 35%; position: absolute;" v-bind:class="'card_' + card.id" v-for="card in mesa">
                 <div class="card" 
-                v-bind:class="'card_' + card.id"
-                style="left: 80px"
-                :style="{backgroundImage: 'url( ./assets/img/' + card.color + '_' + card.number + '.png)', transform: 'translateY('+buy * 0.4 + 'px)'}">
+                :style="{backgroundImage: 'url( ./assets/img/' + card.color + '_' + card.number + '.png)', transform: 'rotateX('+buy.id * 0.7 + 'deg)'}">
                 </div>
             </div>
     
