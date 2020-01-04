@@ -359,7 +359,7 @@ const engine = new Vue({
                 },300);
                } else{
                  console.log("n tem")
-				 const cardRandom = Math.floor(Math.random() * this.cards.length)
+				 var cardRandom = Math.floor(Math.random() * this.cards.length)
 					while(this.cards[cardRandom].number == "Wild_Draw" 
 					|| 
 					this.cards[cardRandom].number == "Skip"
