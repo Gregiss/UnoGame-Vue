@@ -46,7 +46,7 @@ const engine = new Vue({
                 })
             }
             for(var i = 0; i < 3; i++){
-            for(var b = 0; b < 5; b++){
+            for(var b = 0; b < 7; b++){
                 var cardRandom = Math.floor(Math.random() * this.cards.length)
                 while(this.cards[cardRandom].number == "Wild_Draw" 
                 || 
@@ -98,7 +98,7 @@ const engine = new Vue({
         },
         mountMyHand(){
             this.myHand = []
-            for(var i =0; i < 5; i++){
+            for(var i =0; i < 7; i++){
                 const cardRandom = Math.floor(Math.random() * this.cards.length)
                 this.myHand.push(
                     {"id": this.myHand.length+1,

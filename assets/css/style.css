@@ -53,6 +53,11 @@
           cursor: pointer;
           transition: all 0.2s;
     }
+	
+	.myCard .card{
+		animation-duration: 1s;
+		animation-name: cards;
+	}
   
     .card_2{
           transform: rotate(-2deg) translate(-50%);
@@ -115,7 +120,28 @@
           top: 49vw;
       }
       10% {left: 80%;}
+     }
+	 
+	 @keyframes cards {
+      0% {;
+		  background-image: url(../img/Deck.png);
+		  transform: rotateY(190deg);
       }
+      40%{
+		  background-image: url(../img/Deck.png);
+		  transform: rotateY(180deg);
+	  }
+	  60%{
+		  background-image: url(../img/Deck.png);
+		  transform: rotateY(100deg);
+	  }
+	  80%{
+		  transform: rotateY(40deg);
+	  }
+	  100%{
+		  transform: rotateY(0deg);
+	  }
+     }
 
 
       .top{
