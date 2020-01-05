@@ -28,7 +28,7 @@
   
     .myCard{
           position: fixed;
-          bottom: -38px;
+          bottom: -87px;
           width: auto;
           height: 220px;
           background: transparent;
@@ -48,10 +48,11 @@
           background-image: url(../img/Green_3.png);
           background-size: contain;
           display: flex;
-          margin: -18px;
+          margin: -27px;
           box-shadow: 5px 1px 11px 1px rgba(0,0,0,.40);
           cursor: pointer;
           transition: all 0.2s;
+          transform: scale(0.7);
     }
 	
 	.myCard .card{
@@ -148,20 +149,22 @@
             position: fixed;
             width: auto;
             z-index: 10000;
-            left: 30%;
+            left: 20%;
             top: -5%;
+            transform: scale(0.7);
       }
 
       .left{
             position: fixed;
             width: auto;
             z-index: 10000;
-            top: 18%;
+            top: 20%;
             left: 0%;
       }
 
       .left .card{
             display: block;
+            margin-top: -126px;
       }
 
       .right{
@@ -274,11 +277,11 @@
             }
 
             .left{
-                  top: 50%;
+                  top: 90%;
             }
 
             .right{
-                  top: 30%;
+                  top: 80%;
             }
 
             .mount{
@@ -363,8 +366,8 @@
 		 }
 		 
 		 .right .card{
-			 margin-top: -75px;
-			 transform: rotate(183deg);
+			 margin-top: -120px;
+			 transform: rotate(183deg) scale(0.7);
 			}
 
 			.top .card{
